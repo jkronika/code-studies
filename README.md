@@ -1,3 +1,3 @@
-# khanacademy
+# Code Studies
 
-Personal store solutions to exercises on [KhanAcademy.com](http://www.khanacademy.com).
+Store of various approaches and solutions to coding questions and exercises.
