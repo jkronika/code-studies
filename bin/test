@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var Mocha = require('mocha'),
+    fs = require('fs'),
+    path = require('path');
+
+var mocha = new Mocha();
+var testDir = 'tests';
+
+fs.readdirSync(testDir).filter(function(file){
+    var suffix = '.spec.js';
+    return file.substr(-suffix.length) === suffix;
+}).forEach(function(file){
+    mocha.addFile(
+        path.join(testDir, file)
+    );
+});
+
+mocha.run(function(failures){
+    process.on('exit', function () {
+        process.exit(failures);
+    });
+});
