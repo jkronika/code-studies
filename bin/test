@@ -1,20 +1,29 @@
 #!/usr/bin/env node
 
-var Mocha = require('mocha'),
-    fs = require('fs'),
-    path = require('path');
+let Mocha = require('mocha');
+let file = require('file');
+let path = require('path');
 
-var mocha = new Mocha();
-var testDir = 'tests';
+let mocha = new Mocha();
 
-fs.readdirSync(testDir).filter(function(file){
-    var suffix = '.spec.js';
-    return file.substr(-suffix.length) === suffix;
-}).forEach(function(file){
-    mocha.addFile(
-        path.join(testDir, file)
-    );
-});
+function getFiles(dir, parent) {
+    let dirPath = file.path.join(parent, dir);
+    file.walkSync(dirPath, function(dirPath, dirs, files) {
+        dirs.forEach(function(subdir) {
+            getFiles(subdir, dirPath);
+        });
+
+        files.filter(function(file) {
+            let suffix = '.spec.js';
+            return file.substr(-suffix.length) === suffix;
+        }).forEach(function(spec) {
+            let fullPath = file.path.join(dirPath, spec);
+            mocha.addFile(fullPath);
+        });
+    });
+}
+
+getFiles("tests", ".");
 
 mocha.run(function(failures){
     process.on('exit', function () {
