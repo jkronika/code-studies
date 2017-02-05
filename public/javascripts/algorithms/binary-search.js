@@ -23,19 +23,15 @@ module.exports = {
         },
         "recursion": function(list, target) {
             function search(l, t) {
-                console.log("searching for", t, "in", JSON.stringify(l));
                 let guess = Math.floor((l.length - 1) / 2);
                 let value = l[guess];
 
                 if (value < t) {
-                    console.log(guess, "too small (", value, ")");
                     guess = (guess + 1) + search(l.slice(guess + 1), t)
                 } else if (value > t) {
-                    console.log(guess, "too big (", value, ")");
                     guess = search(l.slice(0, guess), t);
                 }
 
-                console.log("found at", guess, t, list[guess]);
                 return guess;
             }
 
