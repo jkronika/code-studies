@@ -17,10 +17,10 @@ describe("Binary Search", function() {
     Object.keys(binarySearch.approaches).forEach(function(approach) {
         it("performs a successful search using " + approach, function() {
             let search = binarySearch.approaches[approach];
-            expect(search(primes, 23)).to.equal(primes.indexOf(23));
-            expect(search(primes, 73)).to.equal(primes.indexOf(73));
-            expect(search(primes, 13)).to.equal(primes.indexOf(13));
-            expect(search(primes, 43)).to.equal(primes.indexOf(43));
+            expect(search(primes, 23)).to.equal(8);
+            expect(search(primes, 73)).to.equal(20);
+            expect(search(primes, 13)).to.equal(5);
+            expect(search(primes, 43)).to.equal(13);
         });
     });
 })
