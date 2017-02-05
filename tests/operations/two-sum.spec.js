@@ -1,14 +1,10 @@
 /**jshint esversion: 6 */
 /**global describe, it, expect */
 
-let sinon = require("sinon");
 let chai = require("chai");
-let sinonChai = require("sinon-chai");
 let twoSum = require("../../public/javascripts/operations/two-sum");
 
 let expect = chai.expect;
-
-chai.use(sinonChai);
 
 describe("Two Sum", function() {
     Object.keys(twoSum.approaches).forEach(function(approach) {

@@ -1,14 +1,10 @@
 /**jshint esversion: 6 */
 /**global describe, it, expect */
 
-let sinon = require("sinon");
 let chai = require("chai");
-let sinonChai = require("sinon-chai");
 let binarySearch = require("../../public/javascripts/algorithms/binary-search");
 
 let expect = chai.expect;
-
-chai.use(sinonChai);
 
 describe("Binary Search", function() {
     let primes;
