@@ -18,9 +18,6 @@ module.exports = {
             }
 
             return list;
-        },
-        "binary search": function(list) {
-
         }
     }
 };
