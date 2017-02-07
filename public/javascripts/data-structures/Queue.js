@@ -1,4 +1,4 @@
-var ListNode = require("./ListNode")
+let ListNode = require("./ListNode")
 
 function Queue() {
     this.first = null;
