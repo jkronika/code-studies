@@ -20,7 +20,7 @@ Queue.prototype.dequeue = function() {
     if (first) {
         this.first = first.next;
     }
-    return first;
+    return first.val;
 };
 
 Queue.prototype.isEmpty = function() {

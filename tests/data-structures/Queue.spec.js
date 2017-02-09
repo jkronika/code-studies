@@ -39,17 +39,17 @@ describe("Queue", function() {
         queue.enqueue(5);
 
         let first3 = queue.dequeue();
-        expect(first3.val).to.equal(3);
+        expect(first3).to.equal(3);
         expect(queue.isEmpty()).to.be.false;
         expect(queue.first.val).to.equal(4);
 
         let first4 = queue.dequeue();
-        expect(first4.val).to.equal(4);
+        expect(first4).to.equal(4);
+        expect(queue.isEmpty()).to.be.false;
+        expect(queue.first.val).to.equal(5);
 
         let first5 = queue.dequeue();
-        expect(first5.val).to.equal(5);
-        expect(first5.next).to.be.null;
-
+        expect(first5).to.equal(5);
         expect(queue.isEmpty()).to.be.true;
     });
 });
